@@ -1,0 +1,24 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "name": "Zouk Congress Kyiv 2018",
+      "shortName": "ZCK18",
+      "location": "Kyiv",
+      "organizator": "Eroshenko",
+      "contact": "mailzouk@gmail.com",
+      "date": "06.06.2018",
+      "price": "50"
+    },
+    {
+      "id": 2,
+      "name": "Ukrainian Zouk Championship 2018",
+      "shortName": "UZC18",
+      "location": "Kyiv",
+      "organizator": "Mishustin",
+      "contact": "mailchemp@gmail.com",
+      "date": "09.09.2018",
+      "price": "60"
+    }
+  ]
+}

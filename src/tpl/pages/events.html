@@ -1,0 +1,68 @@
+<div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div ui-view="topsideHeader">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-lg-2">
+            <div ui-view="asideLeft">
+            </div>
+        </div>
+        <div class="col-md-10 col-lg-10">
+            <div class="template-content">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box-content card">
+                            <h4 class="box-title">Events</h4>
+                            <div class="card-content">
+                                <table st-table="events" st-safe-src="tableEvents" class="table table-striped margin-bottom-10">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Shortname</th>
+                                            <th>Location</th>
+                                            <th>Organizator</th>
+                                            <th>Contact</th>
+                                            <th>Date</th>
+                                            <th>Price</th>
+                                            <th>Invitations</th>
+                                            <th>Maintance</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="event in events">
+                                            <td>{{event.id}}</td>
+                                            <td>{{event.name}}</td>
+                                            <td>{{event.shortName}}</td>
+                                            <td>{{event.location}}</td>
+                                            <td>{{event.organizator}}</td>
+                                            <td>{{event.contact}}</td>
+                                            <td>{{event.date}}</td>
+                                            <td>{{event.price}}</td>
+                                            <td><a href="">invitations</a></td>
+                                            <td>
+                                                <button class="btn btn-default btn-xs" ng-click="edit(event)"><i class="fa fa-edit"></i></button>
+                                                <button class="btn btn-default btn-xs" ng-click="remove(event)"><i class="fa fa-remove"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="col-xs-12 col-md-6">
+                                    <div class="input-group margin-bottom-20 margin-top-20">
+                                        <div class="input-group-btn">
+                                            <label for="ig-1" class="btn btn-default" ng-click="addEvent()"><i class="fa fa-plus"></i></label>
+                                        </div>
+                                        <input id="ig-1" type="text" class="form-control" placeholder="Add event" ng-model="emptyEvent.name">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

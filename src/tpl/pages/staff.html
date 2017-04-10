@@ -1,0 +1,66 @@
+<div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div ui-view="topsideHeader">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-lg-2">
+            <div ui-view="asideLeft">
+            </div>
+        </div>
+        <div class="col-md-10 col-lg-10">
+            <div class="template-content">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box-content card">
+                            <h4 class="box-title">Staff</h4>
+                            <div class="card-content">
+                                <table st-table="staff" st-safe-src="tableStaff" class="table table-striped margin-bottom-10">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Since</th>
+                                            <th>Role</th>
+                                            <th>Events</th>
+                                            <th>Price</th>
+                                            <th>Phone</th>
+                                            <th>Contact</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="st in staff">
+                                            <td>{{st.id}}</td>
+                                            <td>{{st.name}}</td>
+                                            <td>{{st.since}}</td>
+                                            <td>{{st.role}}</td>
+                                            <td>{{st.events}}</td>
+                                            <td>{{st.price}}</td>
+                                            <td>{{st.phone}}</td>
+                                            <td>{{st.contact}}</td>
+                                            <td>
+                                                <button class="btn btn-default btn-xs" ng-click="edit(st)"><i class="fa fa-edit"></i></button>
+                                                <button class="btn btn-default btn-xs" ng-click="remove(st)"><i class="fa fa-remove"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="col-xs-12 col-md-6">
+                                    <div class="input-group margin-bottom-20 margin-top-20">
+                                        <div class="input-group-btn">
+                                            <label for="ig-1" class="btn btn-default" ng-click="addStaff()"><i class="fa fa-plus"></i></label>
+                                        </div>
+                                        <input id="ig-1" type="text" class="form-control" placeholder="Add staff" ng-model="emptyStaff.name">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

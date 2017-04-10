@@ -1,0 +1,38 @@
+
+<div ng-show="active===1">
+    <form class="frm-single" name="$ctrl.frmLogin" ng-submit="$ctrl.login($ctrl.frmLogin)" novalidate>
+        <div class="inside">
+            <div class="title"><strong>Z-Federations </strong>AdminPage</div>
+            <div class="frm-title">Login</div>
+            <div class="frm-input">
+                <input type="email" placeholder="Email" class="frm-inp" ng-model="$ctrl.user.email" required autofocus><i class="fa fa-user frm-ico"></i></div>
+            <div class="frm-input">
+                <input type="password" placeholder="Password" class="frm-inp" ng-model="$ctrl.user.password" required><i class="fa fa-lock frm-ico"></i></div>
+            <div class="clearfix margin-bottom-20">
+                <div class="pull-left">
+                    <div class="checkbox primary">
+                        <input type="checkbox" id="rememberme" ng-model="$ctrl.rememberme">
+                        <label for="rememberme">Remember me</label>
+                    </div>
+                </div>
+                <div class="pull-right"><a href="" ng-click="active=4" class="a-link"><i class="fa fa-unlock-alt"></i>Forgot password?</a></div>
+            </div>
+            <button type="submit" class="frm-submit">Login<i class="fa fa-arrow-circle-right"></i></button>
+            <div class="frm-footer">Z-FederationsAdmin © 2017.</div>
+        </div>
+    </form>
+</div>
+<div ng-show="active===4">
+    <form action="#" class="frm-single" name="$ctrl.frmResend">
+        <div class="inside">
+            <div class="title"><strong>Z-Federations</strong>AdminPage</div>
+            <div class="frm-title">Reset Password</div>
+            <p class="text-center">Enter your email address and we'll send you an email with instructions to reset your password.</p>
+            <div class="frm-input">
+                <input type="email" placeholder="Enter Email" class="frm-inp" ng-model="$ctrl.resetPassword"><i class="fa fa-envelope frm-ico"></i></div>
+            <button ng-click="$ctrl.sendReset()" type="submit" class="frm-submit">Send Email<i class="fa fa-arrow-circle-right"></i></button>
+            <a href="" ng-click="active=1" class="a-link"><i class="fa fa-sign-in"></i>Already have account? Login.</a>
+            <div class="frm-footer">Z-FederationsAdmin © 2017.</div>
+        </div>
+    </form>
+</div>
