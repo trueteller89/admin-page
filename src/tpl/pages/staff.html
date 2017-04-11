@@ -34,13 +34,13 @@
                                     <tbody>
                                         <tr ng-repeat="st in staff">
                                             <td>{{st.id}}</td>
-                                            <td>{{st.fullName}}</td>
-                                            <td>{{st.since}}</td>
-                                            <td>{{st.role}}</td>
-                                            <td>{{st.events.toString()}}</td>
-                                            <td>{{st.price}}</td>
-                                            <td>{{st.phone}}</td>
-                                            <td><a ng-href="{{st.contact}}" target="_blank">{{st.contact}}</a></td>
+                                            <td contenteditable="true" ng-model="st.fullName">{{st.fullName}}</td>
+                                            <td contenteditable="true" ng-model="st.since">{{st.since}}</td>
+                                            <td contenteditable="true" ng-model="st.role">{{st.role}}</td>
+                                            <td contenteditable="true" ng-model="st.events">{{st.events.toString()}}</td>
+                                            <td contenteditable="true" ng-model="st.price">{{st.price}}</td>
+                                            <td contenteditable="true" ng-model="st.phone">{{st.phone}}</td>
+                                            <td contenteditable="true" ng-model="st.contact">{{st.contact}}</td>
                                             <td>
                                                 <button class="btn btn-default btn-xs" ng-click="edit(st)"><i class="fa fa-edit"></i></button>
                                                 <button class="btn btn-default btn-xs" ng-click="remove(st)"><i class="fa fa-remove"></i></button>

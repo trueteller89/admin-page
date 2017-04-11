@@ -36,14 +36,14 @@
                                     <tbody>
                                         <tr ng-repeat="event in data.events">
                                             <td>{{event.id}}</td>
-                                            <td>{{event.name}}</td>
-                                            <td>{{event.shortName}}</td>
-                                            <td>{{event.location}}</td>
-                                            <td>{{event.organizator}}</td>
-                                            <td>{{event.contact}}</td>
-                                            <td><a ng-href="{{event.site}}" target="_blank">{{event.site}}</a></td>
-                                            <td>{{event.date}}</td>
-                                            <td>{{event.price}}</td>
+                                            <td contenteditable="true" ng-model="event.name">{{event.name}}</td>
+                                            <td contenteditable="true" ng-model="event.shortName">{{event.shortName}}</td>
+                                            <td contenteditable="true" ng-model="event.location">{{event.location}}</td>
+                                            <td contenteditable="true" ng-model="event.organizator">{{event.organizator}}</td>
+                                            <td contenteditable="true" ng-model="event.contact">{{event.contact}}</td>
+                                            <td contenteditable="true" ng-model="event.site">{{event.site}}</td>
+                                            <td contenteditable="true" ng-model="event.date">{{event.date}}</td>
+                                            <td contenteditable="true" ng-model="event.price">{{event.price}}</td>
                                             <td><a href="">invitations</a></td>
                                             <td>
                                                 <button class="btn btn-default btn-xs" ng-click="edit(event)"><i class="fa fa-edit"></i></button>

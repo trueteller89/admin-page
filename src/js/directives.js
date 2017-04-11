@@ -17,7 +17,7 @@ angular.module('app.directives', ['ngRoute'])
             };
 
             // load init value from DOM
-            ctrl.$setViewValue(elm.html());
+            //ctrl.$setViewValue(elm.html());
 
             elm.bind('keydown', function(event) {
             	var esc = event.which == 27,

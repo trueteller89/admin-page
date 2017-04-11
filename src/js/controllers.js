@@ -98,7 +98,7 @@ angular.module('app.controllers', ['ngRoute', 'app.services'])
     .controller('staffController', ["$scope", "propertiesService", "userService", "httpRequestsService", function($scope, propertiesService, userService, httpRequestsService) {
         var self = this;
         propertiesService.setTitle('Championship > Staff');
-        $scope.emptyEvent = {
+        $scope.emptyStaff = {
             fullName: "",
             id: ""
         };

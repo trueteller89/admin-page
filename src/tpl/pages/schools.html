@@ -34,13 +34,13 @@
                                     <tbody>
                                         <tr ng-repeat="school in data.schools">
                                             <td>{{school.id}}</td>
-                                            <td>{{school.name}}</td>
-                                            <td>{{school.city}}</td>
-                                            <td>{{school.teachers.toString()}}</td>
-                                            <td><a ng-href="{{school.site}}" target="_blank">{{school.site}}</a></td>
-                                            <td>{{school.phone}}</td>
-                                            <td>{{school.birthdate}}</td>
-                                            <td>{{school.address}}</td>
+                                            <td contenteditable="true" ng-model="school.name">{{school.name}}</td>
+                                            <td contenteditable="true" ng-model="school.city">{{school.city}}</td>
+                                            <td contenteditable="true" ng-model="school.teachers">{{school.teachers.toString()}}</td>
+                                            <td contenteditable="true" ng-model="school.site">{{school.site}}</td>
+                                            <td contenteditable="true" ng-model="school.phone">{{school.phone}}</td>
+                                            <td contenteditable="true" ng-model="school.birthdate">{{school.birthdate}}</td>
+                                            <td contenteditable="true" ng-model="school.address">{{school.address}}</td>
                                             <td>
                                                 <button class="btn btn-default btn-xs" ng-click="edit(school)"><i class="fa fa-edit"></i></button>
                                                 <button class="btn btn-default btn-xs" ng-click="remove(school)"><i class="fa fa-remove"></i></button>

@@ -31,10 +31,10 @@
                                     <tbody>
                                         <tr ng-repeat="dancer in data.dancers">
                                             <td>{{dancer.id}}</td>
-                                            <td>{{dancer.fullName}}</td>
-                                            <td><a ng-href="{{dancer.contact}}" target="_blank">{{dancer.contact}}</a></td>
-                                            <td>{{dancer.phone}}</td>
-                                            <td>{{dancer.advances.toString()}}</td>
+                                            <td contenteditable="true" ng-model="event.fullName">{{dancer.fullName}}</td>
+                                            <td contenteditable="true" ng-model="event.contact">{{dancer.contact}}</td>
+                                            <td contenteditable="true" ng-model="event.phone">{{dancer.phone}}</td>
+                                            <td contenteditable="true" ng-model="event.advances">{{dancer.advances.toString()}}</td>
                                             <td>
                                                 <button class="btn btn-default btn-xs" ng-click="edit(dancer)"><i class="fa fa-edit"></i></button>
                                                 <button class="btn btn-default btn-xs" ng-click="remove(dancer)"><i class="fa fa-remove"></i></button>
