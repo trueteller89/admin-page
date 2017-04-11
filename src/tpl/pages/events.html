@@ -13,11 +13,11 @@
         <div class="col-md-10 col-lg-10">
             <div class="template-content">
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-xs-12 col-md-12">
                         <div class="box-content card">
                             <h4 class="box-title">Events</h4>
                             <div class="card-content">
-                                <table st-table="events" st-safe-src="tableEvents" class="table table-striped margin-bottom-10">
+                                <table st-table="data.events" st-safe-src="tableEvents" class="table table-striped margin-bottom-10">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -26,6 +26,7 @@
                                             <th>Location</th>
                                             <th>Organizator</th>
                                             <th>Contact</th>
+                                            <th>Site</th>
                                             <th>Date</th>
                                             <th>Price</th>
                                             <th>Invitations</th>
@@ -33,13 +34,14 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr ng-repeat="event in events">
+                                        <tr ng-repeat="event in data.events">
                                             <td>{{event.id}}</td>
                                             <td>{{event.name}}</td>
                                             <td>{{event.shortName}}</td>
                                             <td>{{event.location}}</td>
                                             <td>{{event.organizator}}</td>
                                             <td>{{event.contact}}</td>
+                                            <td><a ng-href="{{event.site}}" target="_blank">{{event.site}}</a></td>
                                             <td>{{event.date}}</td>
                                             <td>{{event.price}}</td>
                                             <td><a href="">invitations</a></td>

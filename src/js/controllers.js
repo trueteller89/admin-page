@@ -52,7 +52,7 @@ angular.module('app.controllers', ['ngRoute', 'app.services'])
             name: "",
             id: ""
         };
-        httpRequestsService.getEvents().then(function(res) {
+        httpRequestsService.getSchools().then(function(res) {
             $scope.data = res.data;
             angular.forEach($scope.data.schools, function(obj) {
                 obj.date = new Date(obj.date);
@@ -99,13 +99,14 @@ angular.module('app.controllers', ['ngRoute', 'app.services'])
         var self = this;
         propertiesService.setTitle('Championship > Staff');
         $scope.emptyEvent = {
-            name: "",
+            fullName: "",
             id: ""
         };
-        httpRequestsService.getEvents().then(function(res) {
+        httpRequestsService.getStaff().then(function(res) {
             $scope.data = res.data;
             angular.forEach($scope.data.staff, function(obj) {
                 obj.date = new Date(obj.date);
+                 obj.fullName=obj.name.firstName+" "+obj.name.lastName;
             })
 
             $scope.tableStaff = res.data.staff;
@@ -122,13 +123,13 @@ angular.module('app.controllers', ['ngRoute', 'app.services'])
             }
         }
         $scope.addStaff = function() {
-            if ($scope.emptyStaff.name) {
+            if ($scope.emptyStaff.fullName) {
                 let st = angular.copy($scope.emptyStaff);
                 st.id = Math.max.apply(Math, $scope.data.staff.map(function(o) {
                     return o.id; })) + 1;
                 $scope.data.staff.push(st);
                 $scope.emptyStaff = {
-                    name: "",
+                    fullName: "",
                     id: "",
                 };
             }
@@ -138,15 +139,17 @@ angular.module('app.controllers', ['ngRoute', 'app.services'])
         var self = this;
         propertiesService.setTitle('Championship > Dancers');
         $scope.emptyDancer = {
-            name: "",
+            fullName: "",
             id: ""
         };
         httpRequestsService.getDancers().then(function(res) {
             $scope.data = res.data;
             angular.forEach($scope.data.dancers, function(obj) {
+              obj.advances=[];
                 obj.date = new Date(obj.date);
+                obj.fullName=obj.name.firstName+" "+obj.name.lastName;
+                angular.forEach(obj.discounts, function(el){obj.advances.push(el.congress+"-"+el.discount+"%")});
             })
-
             $scope.tableDancers = res.data.dancers;
         });
         $scope.getters = {
@@ -161,99 +164,16 @@ angular.module('app.controllers', ['ngRoute', 'app.services'])
             }
         }
         $scope.addDancer = function() {
-            if ($scope.emptyDancer.name) {
+            if ($scope.emptyDancer.fullName) {
                 let dancer = angular.copy($scope.emptyDancer);
                 dancer.id = Math.max.apply(Math, $scope.data.dancers.map(function(o) {
                     return o.id; })) + 1;
                 $scope.data.dancers.push(dancer);
                 $scope.emptyDancer = {
-                    name: "",
+                    fullName: "",
                     id: "",
                 };
             }
         }
     }])
-    .controller('subscriptionsController', ["$scope", "propertiesService", "userService", 'httpRequestsService', function($scope, propertiesService, userService, httpRequestsService) {
-        var self = this;
-        propertiesService.setTitle('federation > manage subscriptions');
-        self.modes = ["view", "edit"];
-        $scope.subscriptionsMode = self.modes[0];
-        $scope.subscriptions = [];
-        httpRequestsService.getSubscriptions().then(function(res) {
-            $scope.subscriptions = res.data.subscriptions;
-            $scope.tableSubscriptions = res.data.subscriptions;
-            $scope.columnNames = res.data.columnNames;
-        });
-
-        $scope.emptyMemSub = {
-            "0": "",
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": ""
-        };
-        $scope.emptySub = {
-            id: "",
-            criteria: ""
-        }
-        $scope.saveProfile = function() {};
-        $scope.saveSubscriptions = function() {};
-        $scope.changeSubMode = function() {
-            $scope.subscriptionsMode = ($scope.subscriptionsMode == self.modes[0]) ? self.modes[1] : self.modes[0];
-        };
-        $scope.addSubCriteria = function() {
-            if ($scope.emptySub.criteria) {
-                $scope.emptySub.id = Object.keys($scope.columnNames).length;
-                angular.forEach($scope.subscriptions, function(value, key) {
-                    value[$scope.emptySub.criteria] = null;
-                });
-                $scope.columnNames[$scope.emptySub.id] = $scope.emptySub.criteria;
-                $scope.columnProps = Object.keys($scope.columnNames);
-                $scope.emptySub = {
-                    id: "",
-                    criteria: ""
-                };
-            };
-        };
-        $scope.addSubName = function() {
-            if ($scope.emptyMemSub[1]) {
-                //Find the maximum id and set as the next id of sub
-                $scope.emptyMemSub[0] = Math.max.apply(Math, $scope.subscriptions.map(function(o) {
-                    return o[0]; })) + 1;
-                $scope.subscriptions.push($scope.emptyMemSub);
-                $scope.emptyMemSub = {
-                    "0": "",
-                    "1": "",
-                    "2": "",
-                    "3": "",
-                    "4": "",
-                    "5": ""
-                };
-            }
-        };
-        $scope.removeSub = function(obj) {
-            console.log(obj);
-            let index = $scope.subscriptions.indexOf(obj);
-            $scope.subscriptions.splice(index, 1);
-        };
-        $scope.saveTable = function() {
-            console.log("save changes!");
-        }
-    }])
-    .controller('leaguesController', ["$scope", "$rootScope", '$http', '$filter', 'httpRequestsService', "propertiesService", function($scope, $rootScope, $http, $filter, httpRequestsService, propertiesService) {
-
-
-        propertiesService.setTitle('Leagues');
-
-        httpRequestsService.getLeagues().then(function(res) {
-            $scope.data = res.data;
-            console.log($scope.data);
-            $scope.tableLeagues = res.data.leagues;
-        });
-        $scope.getters = {
-            id: function(value) {
-                return value.id.length;
-            }
-        }
-    }]);
+   ;

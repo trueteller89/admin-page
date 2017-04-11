@@ -17,7 +17,7 @@
                         <div class="box-content card">
                             <h4 class="box-title">Schools</h4>
                             <div class="card-content">
-                                <table st-table="schools" st-safe-src="tableSchool" class="table table-striped margin-bottom-10">
+                                <table st-table="data.schools" st-safe-src="tableSchool" class="table table-striped margin-bottom-10">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -32,12 +32,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr ng-repeat="school in schools">
+                                        <tr ng-repeat="school in data.schools">
                                             <td>{{school.id}}</td>
                                             <td>{{school.name}}</td>
                                             <td>{{school.city}}</td>
-                                            <td>{{school.teachers}}</td>
-                                            <td>{{school.site}}</td>
+                                            <td>{{school.teachers.toString()}}</td>
+                                            <td><a ng-href="{{school.site}}" target="_blank">{{school.site}}</a></td>
                                             <td>{{school.phone}}</td>
                                             <td>{{school.birthdate}}</td>
                                             <td>{{school.address}}</td>
